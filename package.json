@@ -1,0 +1,19 @@
+{
+  "name": "generic-express-api",
+  "version": "1.0.0",
+  "description": "A generic API server built with Express.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DukeOfEtiquette/generic-express-api.git"
+  },
+  "author": "Adam DuQuette <duquetteadam@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DukeOfEtiquette/generic-express-api/issues"
+  },
+  "homepage": "https://github.com/DukeOfEtiquette/generic-express-api#readme"
+}
