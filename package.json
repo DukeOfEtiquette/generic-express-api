@@ -4,6 +4,8 @@
   "description": "A generic API server built with Express.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon index.js",
     "test": "jest --verbose --coverage"
   },
   "repository": {
