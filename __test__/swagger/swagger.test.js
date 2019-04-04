@@ -3,6 +3,7 @@
 require('dotenv').config();
 const request = require('supertest');
 const app = require('../../server/app.js').expressApp;
+const swaggerSpec = require('../../server/swagger/swagger.js').swaggerSpec;
 
 describe('/api-docs.json', () => {
   describe('GET', () => {
@@ -26,6 +27,21 @@ describe('/api-docs.json', () => {
           if(!paths.includes('/helloworld')) throw new Error('/helloworld path missing');
         })
         .expect(200, done);
+    });
+  });
+
+  describe('swaggerSpec', () => {
+    describe('/helloworld', () => {
+      it('should exist', () => {
+        expect(swaggerSpec.paths['/helloworld']).toBeDefined();
+      });
+
+      it('should have a GET definition', () => {
+        var helloworld = swaggerSpec.paths['/helloworld'];
+        expect(helloworld.get).toBeDefined();
+        expect(helloworld.get.description).toBeDefined();
+        expect(helloworld.get.responses).toBeDefined();
+      });
     });
   });
 });
