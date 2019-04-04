@@ -7,7 +7,8 @@
     "start": "node index.js",
     "watch": "nodemon index.js",
     "lint": "eslint ./server",
-    "test": "jest"
+    "test": "jest",
+    "buildDocs": "jsdoc ./README.md ./server -r -d docs/"
   },
   "repository": {
     "type": "git",
