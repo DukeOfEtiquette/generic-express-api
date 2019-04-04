@@ -18,16 +18,6 @@ describe('/api-docs.json', () => {
         })
         .expect(200, done);
     });
-
-    it('should return status 200 with helloworld path', (done) => {
-      request(app)
-        .get('/api-docs.json')
-        .expect(function(res){
-          var paths = Object.keys(res.body.paths);
-          if(!paths.includes('/helloworld')) throw new Error('/helloworld path missing');
-        })
-        .expect(200, done);
-    });
   });
 
   describe('swaggerSpec', () => {
@@ -36,11 +26,18 @@ describe('/api-docs.json', () => {
         expect(swaggerSpec.paths['/helloworld']).toBeDefined();
       });
 
-      it('should have a GET definition', () => {
-        var helloworld = swaggerSpec.paths['/helloworld'];
-        expect(helloworld.get).toBeDefined();
-        expect(helloworld.get.description).toBeDefined();
-        expect(helloworld.get.responses).toBeDefined();
+      describe('GET', () => {
+        it('should exist', () => {
+          var helloworld = swaggerSpec.paths['/helloworld'];
+          expect(helloworld.get).toBeDefined();
+          expect(helloworld.get.description).toBeDefined();
+          expect(helloworld.get.responses).toBeDefined();
+        });
+
+        it('should have a 200 response', () => {
+          var helloworld = swaggerSpec.paths['/helloworld'];
+          expect(helloworld.get.responses['200']).toBeDefined();
+        });
       });
     });
   });
