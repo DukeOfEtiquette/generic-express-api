@@ -7,7 +7,7 @@
     "start": "node index.js",
     "watch": "nodemon index.js",
     "lint": "eslint ./server",
-    "test": "jest",
+    "test": "jest --verbose",
     "buildDocs": "jsdoc ./README.md ./server -r -d docs/"
   },
   "repository": {
@@ -25,7 +25,9 @@
     "dotenv": "^7.0.0",
     "eslint": "^5.16.0",
     "express": "^4.16.4",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "swagger-jsdoc": "^3.2.8",
+    "swagger-ui-express": "^4.0.2"
   },
   "devDependencies": {
     "jest": "^24.5.0",

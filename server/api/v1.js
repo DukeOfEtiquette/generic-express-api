@@ -9,6 +9,15 @@ const router = require('express').Router();
 /********************************************************************************
 Add Routes
 ********************************************************************************/
+/**
+   * @swagger
+   * /helloworld:
+   *   get:
+   *     description: Returns the hello world string
+   *     responses:
+   *       200:
+   *         description: "hello world"
+*/
 router.get('/helloworld', (req, res, next) => {
   res.status(200).send('Hello world v1');
 });
