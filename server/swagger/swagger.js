@@ -1,6 +1,7 @@
 'use strict';
 
 const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 /********************************************************************************
 Initialize Router 
@@ -13,7 +14,7 @@ const swaggerDefinition = {
     version: '1.0.0', 
     description: 'A generic Express API',
   },
-  host: `localhost:${process.env.PORT}`,
+  host: `http://localhost:${process.env.PORT}`,
   basePath: '/',
 };
 
@@ -26,9 +27,11 @@ const options = {
 };
 
 // Initialize swagger-jsdoc -> returns validated swagger spec in json format
-const swaggerSpec = swaggerJSDoc(options);
+let swaggerSpec = swaggerJSDoc(options);
 
-// Serve swagger docs the way you like (Recommendation: swagger-tools)
+router.use('/api-docs', swaggerUi.serve);
+router.get('/api-docs', swaggerUi.setup(swaggerSpec));
+
 router.get('/api-docs.json', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.send(swaggerSpec);
