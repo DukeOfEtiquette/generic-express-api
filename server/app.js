@@ -23,7 +23,7 @@ app.use(morgan(process.env.MORGAN_FORMAT));
 /********************************************************************************
 Routes
 ********************************************************************************/
-app.use(require('./api/v1.js'));
+app.use('/api/v1', require('./api/v1.js'));
 app.use(require('./swagger/swagger.js').router);
 
 

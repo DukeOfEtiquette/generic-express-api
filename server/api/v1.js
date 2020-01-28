@@ -11,7 +11,7 @@ Add Routes
 ********************************************************************************/
 /**
    * @swagger
-   * /helloworld:
+   * /api/v1/helloworld:
    *   get:
    *     description: Returns the hello world string
    *     responses:

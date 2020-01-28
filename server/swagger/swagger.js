@@ -14,7 +14,7 @@ const swaggerDefinition = {
     version: '1.0.0', 
     description: 'A generic Express API',
   },
-  host: `http://localhost:${process.env.PORT}`,
+  host: `localhost:${process.env.PORT}`,
   basePath: '/',
 };
 
